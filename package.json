@@ -1,0 +1,23 @@
+{
+  "name": "bamazon-cli-app",
+  "version": "1.0.0",
+  "description": "Store app that allows customers to place orders, subsequently altering the store's inventory.",
+  "main": "bamazonCustomer.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kelsisummers/Bamazon-CLI-App.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kelsisummers/Bamazon-CLI-App/issues"
+  },
+  "homepage": "https://github.com/kelsisummers/Bamazon-CLI-App#readme",
+  "dependencies": {
+    "inquirer": "^5.1.0",
+    "mysql": "^2.15.0"
+  }
+}
