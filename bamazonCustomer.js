@@ -17,28 +17,43 @@ var connection = mysql.createConnection({
   connection.connect(function(err) {
     if (err) throw err;
     // run the start function after the connection is made to prompt the user
-    // login();
+    productList();
   });
 
 
 
-function artistSongs(){
-  inquirer
-  .prompt([
-    {
-        name: "artist",
-        type: "input",
-        message: "Which Artist's Songs?",
-    }
-  ]).then(function(input) {
-    var artist = input.artist;
-    connection.query("SELECT * FROM products WHERE artist=?", [ artist], function(err, res) {
+function productList(){
+
+    connection.query("SELECT * FROM products", function(err, res) {
       console.log("-----------------------------------");
       for (var i = 0; i < res.length; i++) {
-        console.log(res[i].artist + " | Song: " + res[i].song + " | Year: " + res[i].year + " | ");
+        console.log("Product ID: " + res[i].item_id + " | Product Name: " + res[i].product_name + " | Price: " + res[i].price + " | ");
+        promptCustomer(res[i].product_name);
       }
       console.log("-----------------------------------");
     connection.end();
     });
+};
+
+function promptCustomer(products){
+  inquirer
+  .prompt([
+    {
+    name: "choice",
+    type: "list",
+    message: "What would you like to purchase?",
+    choices: products,
+    },
+
+  ]).then(function(choice) {
+    inquirer.prompt ([
+      {
+      name: "units",
+      type: "input",
+      message: "How many " + choice + " would you like to purchase?",
+      },
+    ]).then(function(something){
+      console.log("landed.")
+    })
   });
 }
