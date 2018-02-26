@@ -18,3 +18,6 @@ VALUES ("HDTV", "Electronics", 139.99, 20), ("PS4", "Electronics", 299.99, 14),
 ("Shower Curtain", "Decor", 9.99, 30), ("MP3 Player", "Electronics", 14.99, 10), 
 ("Area Rug","Decor", 249.99, 5), ("Book Shelf", "Decor", 49.99, 25), 
 ("Kitchen Aid", "Kitchen Supplies", 249.99, 5);
+
+
+SELECT * FROM products;
