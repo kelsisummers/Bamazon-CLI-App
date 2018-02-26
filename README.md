@@ -14,3 +14,7 @@ Software Stack:
   - Javascript
   - Node
   - MySQL
+
+Dependencies:
+  - Inquirer
+  - MySQL
