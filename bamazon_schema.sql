@@ -17,7 +17,21 @@ INSERT INTO products (product_name, department_name, price, stock_quantity)
 VALUES ("HDTV", "Electronics", 139.99, 20), ("PS4", "Electronics", 299.99, 14), 
 ("Shower Curtain", "Decor", 9.99, 30), ("MP3 Player", "Electronics", 14.99, 10), 
 ("Area Rug","Decor", 249.99, 5), ("Book Shelf", "Decor", 49.99, 25), 
-("Kitchen Aid", "Kitchen Supplies", 249.99, 5);
+("Kitchen Aid", "Kitchen", 249.99, 5);
 
 
 SELECT * FROM products;
+
+CREATE TABLE departments(   
+department_id INT PRIMARY KEY AUTO_INCREMENT,   
+department_name VARCHAR(100) NOT NULL,   
+over_head_costs INT NOT NULL,   
+product_sales INT NULL
+);
+
+ALTER TABLE departments AUTO_INCREMENT = 01;
+
+INSERT INTO departments (department_name, over_head_costs, product_sales) 
+VALUES ("Electronics", 60000), ("Decor", 1000), ("Kitchen", 10000); 
+
+SELECT * FROM departments;

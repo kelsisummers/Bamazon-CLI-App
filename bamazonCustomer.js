@@ -89,6 +89,7 @@ function buyItem() {
         if (results[i].product_name === answer.choice) {
           chosenItem = results[i];
         };
+        // return chosenItem;
       };
       // Troubleshooting:
       // console.log("Stock: ", chosenItem.stock_quantity);
@@ -101,7 +102,22 @@ function buyItem() {
         var newInventory = chosenItem.stock_quantity -= parseInt(answer.quantity);
         // Calculates Order Total
         var orderTotal = chosenItem.price * parseInt(answer.quantity);
-          
+
+        connection.query("SELECT * FROM departments WHERE department_name ='" + chosenItem.department_name + "'", function(err, results) {
+          if (err) throw err; 
+          var productSales = orderTotal + results[0].product_sales;
+            // Updates Database With New Inventory
+            connection.query("UPDATE departments SET ? WHERE ?", [{product_sales: productSales}, {department_name: results[0].department_name}], function(error) {
+            // If Error, Throw Error. 
+            if (error) throw error;
+            });
+          // Troubleshooting:
+          // console.log("Results: ", results);
+          // console.log("Order Total:", orderTotal);
+          // console.log("Product Sales", results[0].product_sales);
+          // console.log("product sales", productSales);
+        });
+
         // Updates Database With New Inventory
         connection.query("UPDATE products SET ? WHERE ?", [{stock_quantity: newInventory}, {item_id: chosenItem.item_id}], function(error) {
           // If Error, Throw Error. 
@@ -117,8 +133,8 @@ function buyItem() {
           
           // TroubleShooting
           // console.log("New Inventory: " + newInventory + "\n");
-          }
-        );
+          });
+
       // If There's Not Enough Inventory...
       } else {
         console.log("-----------------------------------\n");
