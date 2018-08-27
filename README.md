@@ -6,6 +6,15 @@ A command-line store app that takes in orders from customers, calculates order t
 Manager's can see all items in the store, view low inventory items, add inventory, or add a new item. 
 App also calculates and saves product sales by department.
 
+Instructions for using Bamazon:
+
+  - Open Bash or Terminal
+  - Navigate to bamazon-cli-app directory
+  - Install dependencies
+  - Initiate Bamazon with either 'node bamazonCustomer.js' or 'node bamazonManager.js'
+  - Select An Answer From The List
+  - Provide Input When Prompted
+
 Tech Stack:
   - JavaScript
   - Node
