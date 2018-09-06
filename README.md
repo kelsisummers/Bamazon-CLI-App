@@ -1,6 +1,6 @@
 # Bamazon-CLI-App
 
-GitHub Repo: https://github.com/kelsisummers/Bamazon-CLI-App.git
+<strong>GitHub Repo: https://github.com/kelsisummers/Bamazon-CLI-App.git</strong>
 
 A command-line store app that takes in orders from customers, calculates order total, and depletes stock from the store's inventory. 
 Manager's can see all items in the store, view low inventory items, add inventory, or add a new item. 
